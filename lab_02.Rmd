@@ -1,0 +1,89 @@
+---
+title: "Lab 02"
+author: ""
+date: ""
+output: 
+  html_document:
+    toc: true
+    number_sections: false
+    toc_float: true
+    df_print: paged
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      comment = "#>", highlight = TRUE,
+                      fig.align = "center")
+```
+
+## Shell commands
+
+In this repo is a zip file named `organize_me.zip`. It can by unzipped by
+running R code `unzip("organize_me.zip")`. Do this in your console so you only 
+unzip the folder once and not each time you knit the Rmd file.
+
+The files in `organize_me/` contain a sample of various files you may have if 
+you run a simulation on a high performance computer. Organize the contents in
+`organize_me/` using the terminal and shell according to the following steps.
+
+1. delete all `.input2` files;
+2. remove the `flags/` directory and all of its contents;
+3. place the test data text files in a directory named `test_data/`;
+4. place the `.sh` files in a directory named `scripts_shell/`;
+5. place the `.R` files in a directory named `scripts_R/`;
+6. place the `.qsub` files in a directory named `hpc_start/`;
+7. copy directory `organize_me/` and name the copy `simulations/`;
+8. delete directory `organize_me/` and all of its contents.
+
+
+
+## Attributes
+
+Create a date-time object based on the atomic double vector below. You'll
+need to set the class attribute to `"POSIXct"`
+
+```{r}
+z <- seq(0, 3600 * 10, by = 3600)
+```
+
+What do you notice about the date-time? If you are unsure, check out
+[Unix Epoch](https://en.wikipedia.org/wiki/Unix_time). A time converter is
+available [here](https://www.epochconverter.com).
+
+
+
+## Subsetting
+
+Consider the atomic vector `x`.
+
+```{r}
+set.seed(0826) # set seed to ensure reproducibility
+x <- sample(x = c(letters, -15:15), size = 50, replace = TRUE)
+x
+```
+
+Complete the following without using any loops.
+
+1. Subset only the letters from `x`.
+
+2. Subset only the negative numbers from `x`.
+
+3. Select the numbers divisible by 3 from `x`.
+
+4. Remove all values with an even index from `x`.
+
+
+
+## Git from the command line
+
+[Git cheat sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+
+1. Assuming you completed the shell commands tasks above, use git from the 
+   command line to stage and commit your work. 
+
+2. After committing, delete directory `simulations/`.
+
+3. Use git from the command line to stage and commit your work. 
+
+4. Use git from the command line to revert your last commit in order to 
+   recover `simulations/`. Refer to the above cheat sheet for assistance.
