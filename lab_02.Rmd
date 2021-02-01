@@ -1,7 +1,7 @@
 ---
 title: "Lab 02"
-author: ""
-date: ""
+author: "Vandita Garimella"
+date: "02/01/21"
 output: 
   html_document:
     toc: true
@@ -26,16 +26,22 @@ The files in `organize_me/` contain a sample of various files you may have if
 you run a simulation on a high performance computer. Organize the contents in
 `organize_me/` using the terminal and shell according to the following steps.
 
-1. delete all `.input2` files;
+1. delete all `.input2` files; 
+completed
 2. remove the `flags/` directory and all of its contents;
+completed
 3. place the test data text files in a directory named `test_data/`;
+completed
 4. place the `.sh` files in a directory named `scripts_shell/`;
+completed
 5. place the `.R` files in a directory named `scripts_R/`;
+completed
 6. place the `.qsub` files in a directory named `hpc_start/`;
+completed
 7. copy directory `organize_me/` and name the copy `simulations/`;
+completed
 8. delete directory `organize_me/` and all of its contents.
-
-
+completed
 
 ## Attributes
 
@@ -44,13 +50,18 @@ need to set the class attribute to `"POSIXct"`
 
 ```{r}
 z <- seq(0, 3600 * 10, by = 3600)
+attr(z, which = "class") <- "POSIXct"
+print(z)
 ```
 
 What do you notice about the date-time? If you are unsure, check out
 [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time). A time converter is
 available [here](https://www.epochconverter.com).
 
-
+The year, month, then date is the order in which the date is printed. The
+date is printed before the time. The time is defaulted to Eastern Standard
+Time. The time is noted in hours, minutes, then seconds. The dates and times
+are organized in chronological order.
 
 ## Subsetting
 
@@ -66,13 +77,55 @@ Complete the following without using any loops.
 
 1. Subset only the letters from `x`.
 
+```{r}
+x[is.na(as.numeric(x))]
+```
+
 2. Subset only the negative numbers from `x`.
+
+```{r}
+x[as.numeric(x) < 0 & !is.na(as.numeric(x))]
+
+#w <- c()
+#y <- as.numeric(x)
+#for(i in seq_along(x)){
+#  if((!is.na(y[i])) & y[i] <0){
+ #    w <- c(w, y[i])
+  #}
+#}
+#print(w)
+```
 
 3. Select the numbers divisible by 3 from `x`.
 
+```{r}
+x[!is.na(as.numeric(x)) & as.numeric(x) %% 3 == 0]
+
+#z <- c()
+#y <- as.numeric(x)
+#for(i in seq_along(y)){
+ # if(!is.na(y[i])){
+  #   if(y[i] %% 3 == 0){
+  #    z <- c(z, x[i])
+   #  }
+  #}
+#}
+#print(z)
+```
+
 4. Remove all values with an even index from `x`.
 
+```{r}
+x[!(seq_along(x) %%2 == 0)]
 
+#v <- c()
+#for(i in seq_along(x)){
+  #if(!(i%%2 ==0)){
+  #  v <- c(v, x[i])
+  #}
+#}
+#print(v)
+```
 
 ## Git from the command line
 
